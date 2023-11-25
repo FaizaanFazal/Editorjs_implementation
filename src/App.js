@@ -1,8 +1,22 @@
 import EditorJS from "@editorjs/editorjs";
 import './App.css';
 import { useEffect, useRef } from "react";
+import Header from '@editorjs/header'; 
 
 function App() {
+ 
+  const DEFAULT_INITIAL_DATA =  {
+    "time": new Date().getTime(),
+    "blocks": [
+      {
+        "type": "header",
+        "data": {
+          "text": "This is my First Editor!!!",
+          "level": 1
+        }
+      },
+    ]
+}
 
   const ejInstance = useRef();
 
@@ -38,7 +52,7 @@ function App() {
 
   return (
     <div className="App" id="editorjs">
-      hello
+
     </div>
   );
 }
