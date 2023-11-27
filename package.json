@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@editorjs/checklist": "^1.6.0",
+    "@editorjs/delimiter": "^1.4.0",
     "@editorjs/editorjs": "^2.28.2",
     "@editorjs/embed": "^2.7.0",
     "@editorjs/header": "^2.8.1",
@@ -12,6 +13,8 @@
     "@editorjs/nested-list": "^1.4.1",
     "@editorjs/quote": "^2.6.0",
     "@editorjs/simple-image": "^1.6.0",
+    "@editorjs/table": "^2.3.0",
+    "@editorjs/warning": "^1.4.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

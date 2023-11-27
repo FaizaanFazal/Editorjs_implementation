@@ -8,7 +8,9 @@ import NestedList from '@editorjs/nested-list';
 import Checklist from '@editorjs/checklist'
 import LinkTool from '@editorjs/link';
 import Embed from '@editorjs/embed';
-
+import Table from '@editorjs/table'
+import Delimiter from '@editorjs/delimiter';
+import Warning from '@editorjs/warning';
 
 function App() {
 
@@ -18,7 +20,7 @@ function App() {
       {
         "type": "header",
         "data": {
-          "text": "This is my First Editor!!!",
+          "text": "First text editor with dummy pre saved data",
           "level": 1
         }
       },
@@ -61,8 +63,20 @@ function App() {
             endpoint: "https://codex.so/public/app/img/meta_img.png", // Your backend endpoint for url data fetching,
           }
         },
-        embed: Embed, //todo
-
+        embed: {
+          class: Embed,
+          inlineToolbar: true
+        }, //todo
+        table: Table,
+        delimiter: Delimiter,
+        warning: {
+          class: Warning,
+          inlineToolbar: true,
+          config: {
+            titlePlaceholder: 'Title',
+            messagePlaceholder: 'Message',
+          },
+        },
       },
     });
   };
