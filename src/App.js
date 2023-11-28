@@ -11,6 +11,8 @@ import Embed from '@editorjs/embed';
 import Table from '@editorjs/table'
 import Delimiter from '@editorjs/delimiter';
 import Warning from '@editorjs/warning';
+import ImageTool from "@editorjs/image";
+import axios from "axios";
 
 function App() {
 
@@ -77,6 +79,46 @@ function App() {
             messagePlaceholder: 'Message',
           },
         },
+
+        image: {
+          class: ImageTool,
+          config: {
+            uploader: {
+              async uploadByFile(file) {
+                const formData = new FormData();
+                formData.append("file", file);
+                const response = await axios.post(
+                  `http://localhost:3001/api/uploadImage/create`,
+                  formData,
+                  {
+                    headers: {
+                      "Content-Type": "multipart/form-data",
+                    },
+                    withCredentials: false,
+                  }
+                );
+
+                if (response.data.success === 1) {
+                  return response.data;
+                }
+              },
+              async uploadByUrl(url) {
+                const response = await axios.post(
+                  `http://localhost:3001/api/uploadImage/createByUrl`,
+                  {
+                    url,
+                  }
+                );
+
+                if (response.data.success === 1) {
+                  return response.data;
+                }
+              },
+            },
+            inlineToolbar: true,
+          },
+        },
+
       },
     });
   };
